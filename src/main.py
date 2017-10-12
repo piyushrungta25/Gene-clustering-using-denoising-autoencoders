@@ -56,10 +56,15 @@ def get_spectral_clusters(X, Y):
 def get_adjusted_rand_score(labels_true, label_pred):
 	return adjusted_rand_score(labels_true, label_pred)
 
+def get_score(X, Y):
+	c = get_spectral_clusters(X, Y)
+	return get_adjusted_rand_score(Y, c)
+
 
 if __name__ == "__main__":
 	for _ in range(10):
 		X, Y = get_dataset(dataset1_filepath)
 		pred = get_spectral_clusters(X, Y)
+		# pred = get_kmeans_clusters(X, Y)
 		print get_adjusted_rand_score(Y, pred)
 
