@@ -71,7 +71,7 @@ def plot_result(res, baseline):
 	plt.ylabel('Adjusted Rand Index')
 	plt.savefig('result.svg')
 
-if __name__ == '__main__':
+def get_training_results():
 	X, Y = m.get_dataset(m.dataset1_filepath)
 	baseline = m.get_score(X, Y)
 	# print train_one(X, Y, 16, 0.1)
@@ -84,3 +84,6 @@ if __name__ == '__main__':
 			res[i][j] = ari
 
 	plot_result(res, baseline)
+
+if __name__ == '__main__':
+	get_training_results()
